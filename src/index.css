@@ -1,0 +1,9 @@
+.dialog{
+    border: 2px solid green;
+    border-radius: 5px;
+    float:left
+}
+
+.pictures{
+    float: right
+}
