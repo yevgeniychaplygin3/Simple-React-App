@@ -5,42 +5,32 @@ class EntryDialog extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            url: '', 
-            caption: ''
         }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleURLChange = this.handleURLChange.bind(this)
-    this.handleCaptionChange = this.handleCaptionChange.bind(this)
     }
     
-    handleURLChange(event){
-        event.preventDefault()
-        this.setState({url: event.target.value})
-    }
-    handleCaptionChange(event){
-        event.preventDefault()
-        this.setState({caption: event.target.value})
-    }
     
-    handleSubmit(event){
-        event.preventDefault()
-        alert(`${this.state.caption} ${this.state.url}`)
+    
+    handleSubmit(prop){
+        // event.preventDefault()
+        console.log(prop)
+        alert(`${prop.currentState.state.caption} ${prop.currentState.state.url}`)
     }
 
 
     render(){
         return (
             <div className='dialog'>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(e) => {e.preventDefault(); this.handleSubmit(this.props)}}>
                     <h1>hello from the entry dialog</h1>
-                    <input placeholder="enter url"  onChange={this.handleURLChange} ></input>
+                    <input placeholder="enter url" onChange={this.props.currentState.handleURLChange}></input>
                     <br/>
-                    <input placeholder="enter caption" onChange={this.handleCaptionChange}></input>
+                    <input placeholder="enter caption"  onChange={this.props.currentState.handleCaptionChange}></input>
                     <br/>
                     <button type='submit'>Accept</button>
                     <button onClick={(e) => {
                         e.preventDefault()
-                        {this.props.closeDialog()}
+                        {this.props.currentState.closeDialog()}
                         }}>
                             Cancel
                     </button>

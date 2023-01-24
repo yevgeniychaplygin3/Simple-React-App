@@ -8,12 +8,27 @@ class Dialog extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            open: false
+            open: false,
+            url: '', 
+            caption: ''
         }
         
         this.openDialog = this.openDialog.bind(this)
         this.closeDialog = this.closeDialog.bind(this)
+        this.handleURLChange = this.handleURLChange.bind(this)
+        this.handleCaptionChange = this.handleCaptionChange.bind(this)
+
     }
+
+    handleURLChange(event){
+        event.preventDefault()
+        this.setState({url: event.target.value})
+    }
+    handleCaptionChange(event){
+        event.preventDefault()
+        this.setState({caption: event.target.value})
+    }
+
 
     openDialog () {
         console.log(`open: ${this.state.open}`)
@@ -37,7 +52,7 @@ class Dialog extends React.Component {
                     Open Dialog Entry
                 </button>
                     <div>
-                        {this.state.open ?  <EntryDialog closeDialog={this.closeDialog}/> : ''}
+                        {this.state.open ?  <EntryDialog currentState={this}/> : ''}
                     </div>
             </>
         )
