@@ -1,5 +1,4 @@
 import React from 'react'
-import Pictures from './PicturesList'
 
 
 class EntryDialog extends React.Component{
@@ -14,11 +13,7 @@ class EntryDialog extends React.Component{
     
     
     handleSubmit(prop){
-        // event.preventDefault()
-        // console.log(prop)
-        // console.log(`${prop.currentState.state.caption} ${prop.currentState.state.url}`)
         if(prop.currentState.state.caption == '' || prop.currentState.state.url == ''){
-            console.log('cannot be empty')
             this.setState( (e) => e.empty = true)
         }
         else{
@@ -45,12 +40,9 @@ class EntryDialog extends React.Component{
                             Cancel
                     </button>
                     <div className=''>
-                        {/* {this.state.empty ? 'You must enter both a URL and a caption' : ''} */}
                         {this.state.empty ? <p className='dialogError'>You must enter both a URL and a caption</p> : ''}
                     </div>
                 </form>
-
-                {/* <button onClick={this.printfunc}>printfunc</button> */}
             </div>
         )
     }

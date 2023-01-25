@@ -15,7 +15,6 @@
     margin: 10px;
 }
 
-
 .dialogError{
 
     border: 2px solid red;
@@ -24,26 +23,20 @@
     background-color:lightcoral;
 }
 
-
 img {
     width: 100px;
     height: auto;
-    /* margin-right: 100px; */
-    /* padding-right: 100px; */
 }
 
 .leftSide{
     margin: 5px;
-    /* border: 1px solid #ccc; */
     float: right;
     width: 50%;
 
 
 }
 
-
 .btn{
-    /* position: relative; */
     display: inline;
 }
 

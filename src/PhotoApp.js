@@ -17,7 +17,6 @@ class App extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            // dialogopen: false,
             url: '', 
             caption: '',
             pictureUrl: Object.keys(images)[0],
@@ -43,14 +42,10 @@ class App extends React.Component{
     
 
     openDialog () {
-        // console.log(this.state.open == this.state.dialogopen)
-        // this.setState(previousState => ({open: !previousState.open}))
         this.setState((e) => e.open = true)
-        // this.setState(oldstate => ({open: !oldstate.open}))
     }
 
     closeDialog(){
-        // console.log(`close: ${this.state.dialogopen}`)
         this.setState((e) => e.open = false)
         this.setState( (e) => e.url = '')
         this.setState( (e) => e.caption = '')
@@ -65,23 +60,15 @@ class App extends React.Component{
     }
 
     handlePicturesChange(){
-        // console.log(`==caption ${this.state.caption}, ${this.state.url}`);
-        // this.setState({pictureUrl: this.state.url})
-        // this.setState({pictureCaption: this.state.caption})
         this.counter = this.updateCounter()
         images[this.counter] = this.state.url
         captions[this.counter] = this.state.caption
-        console.log(images)
-        console.log(captions)
         this.closeDialog()
-        // console.log(`==pictureschange ${this.state.pictureUrl}, ${this.state.pictureCaption}`);
     }
 
     handleDeletion(key){
         delete images[key]
-        console.log(images)
         this.setState({pictureCaption: key})
-        // this.closeDialog()
     }
 
 
@@ -103,10 +90,6 @@ class App extends React.Component{
                     cpt={captions}
                     handleDeletionChange={this.handleDeletion}
                     />
-                {/* <Pictures 
-                    options={captions}
-                    value={this.state.pictureCaption}
-                    handleChange={this.handlePicturesChange}/> */}
             </div>
             </>
         )
