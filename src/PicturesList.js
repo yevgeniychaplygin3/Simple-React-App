@@ -8,11 +8,16 @@ class Pictures extends React.Component{
             counter: 0
         }
         this.updateCounter = this.updateCounter.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     updateCounter(){
         this.setState({counter : this.state.counter += 1})
         return this.state.counter
+    }
+
+    handleChange(event){
+        this.props.handleDeletionChange(event.target.value)
     }
     
 
@@ -22,13 +27,10 @@ class Pictures extends React.Component{
                  {Object.keys(this.props.img).map(key => (
                     <span className='pictures'>
                         <img key={key} src={this.props.img[key]}/>
-                        <p>{this.props.cpt[key]}</p>
+                        <p className='caption'>{this.props.cpt[key]}</p>
+                        <button className='btn' onClick={this.handleChange} value={key}>X</button>
                     </span>
                   )).reverse()}  
-                
-                {/* <img src='https://th.bing.com/th/id/OIP.49CH_m8xcY3b6stGkMkG2AHaEO?pid=ImgDet&rs=1'/> */}
-                {/* <p>caption</p> */}
-                
             </div>
             )
     }

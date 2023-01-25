@@ -3,8 +3,8 @@ import EntryDialog from './EntryDialog'
 import Pictures from './PicturesList'
 
 const images = {
-    // url0: 'https://th.bing.com/th/id/OIP.49CH_m8xcY3b6stGkMkG2AHaEO?pid=ImgDet&rs=1',
-    // url1: 'https://th.bing.com/th/id/OIP.aQFbvUUdsl1hfZYF1XmUqwHaE8?pid=ImgDet&rs=1'
+    url0: 'https://th.bing.com/th/id/OIP.49CH_m8xcY3b6stGkMkG2AHaEO?pid=ImgDet&rs=1',
+    url1: 'https://th.bing.com/th/id/OIP.aQFbvUUdsl1hfZYF1XmUqwHaE8?pid=ImgDet&rs=1'
 }
 
 
@@ -12,65 +12,6 @@ const captions = {
     caption0: 'hi',
     caption1: 'world'
 } 
-
-// class Dialog extends React.Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             open: false,
-//             url: '', 
-//             caption: ''
-//         }
-        
-//         this.openDialog = this.openDialog.bind(this)
-//         this.closeDialog = this.closeDialog.bind(this)
-//         this.handleURLChange = this.handleURLChange.bind(this)
-//         this.handleCaptionChange = this.handleCaptionChange.bind(this)
-
-//     }
-
-//     handleURLChange(event){
-//         event.preventDefault()
-//         this.setState({url: event.target.value})
-//     }
-//     handleCaptionChange(event){
-//         event.preventDefault()
-//         this.setState({caption: event.target.value})
-//     }
-
-
-//     openDialog () {
-//         console.log(`open: ${this.state.open}`)
-//         // this.setState(previousState => ({open: !previousState.open}))
-//         this.setState((e) => e.open = true)
-//     }
-
-//     closeDialog(){
-//         console.log(`close: ${this.state.open}`)
-//         this.setState((e) => e.open = false)
-//     }
-    
-
-
-    
-
-//     render(){
-//         return(
-//             <>
-//                 {/* <button onClick={this.openDialog}> */}
-//                     {/* Open Dialog Entry */}
-//                 {/* </button> */}
-//                     {/* <div> */}
-                        
-//                         {/* {this.state.open ?  <EntryDialog currentState={this}/> : ''} */}
-//                     {/* </div> */}
-//             </>
-//         )
-//     }
-// }
-
-
-
 
 class App extends React.Component{
     constructor(props){
@@ -86,6 +27,7 @@ class App extends React.Component{
         this.closeDialog = this.closeDialog.bind(this)
         this.handleURLChange = this.handleURLChange.bind(this)
         this.handleCaptionChange = this.handleCaptionChange.bind(this)
+        this.handleDeletion = this.handleDeletion.bind(this)
 
 
     }
@@ -133,7 +75,13 @@ class App extends React.Component{
         console.log(captions)
         this.closeDialog()
         // console.log(`==pictureschange ${this.state.pictureUrl}, ${this.state.pictureCaption}`);
+    }
 
+    handleDeletion(key){
+        delete images[key]
+        console.log(images)
+        this.setState({pictureCaption: key})
+        // this.closeDialog()
     }
 
 
@@ -153,6 +101,7 @@ class App extends React.Component{
                 <Pictures 
                     img={images}
                     cpt={captions}
+                    handleDeletionChange={this.handleDeletion}
                     />
                 {/* <Pictures 
                     options={captions}

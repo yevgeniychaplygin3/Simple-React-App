@@ -34,9 +34,21 @@ img {
 
 .leftSide{
     margin: 5px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     float: right;
     width: 50%;
 
 
+}
+
+
+.btn{
+    /* position: relative; */
+    display: inline;
+}
+
+.caption{
+    font-size: medium;
+    text-align: center;
+    margin: 1px;
 }
