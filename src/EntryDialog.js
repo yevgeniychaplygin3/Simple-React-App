@@ -1,4 +1,5 @@
 import React from 'react'
+import Pictures from './PicturesList'
 
 
 class EntryDialog extends React.Component{
@@ -21,7 +22,9 @@ class EntryDialog extends React.Component{
             this.setState( (e) => e.empty = true)
         }
         else{
-            return (prop.currentState.closeDialog())
+            return (
+                prop.currentState.handlePicturesChange()
+                )
         }
     }
 
@@ -30,7 +33,6 @@ class EntryDialog extends React.Component{
         return (
             <div className='dialog'>
                 <form onSubmit={(e) => {e.preventDefault(); this.handleSubmit(this.props)}}>
-                    <h1>hello from the entry dialog</h1>
                     <input placeholder="enter url" onChange={this.props.currentState.handleURLChange} ></input>
                     <br/>
                     <input placeholder="enter caption"  onChange={this.props.currentState.handleCaptionChange} ></input>

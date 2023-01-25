@@ -1,12 +1,20 @@
 .dialog{
     border: 2px solid green;
     border-radius: 5px;
-    float:left
+    float:left;
+    margin: 1%;
 }
 
 .pictures{
-    float: right
+    flex-direction: column;
+    float: left;
+    /* width: 30%; */
+    height: 150px;
+    border: 7px solid green;
+    border-radius: 5px;
+    margin: 10px;
 }
+
 
 .dialogError{
 
@@ -14,4 +22,21 @@
     border-radius: 5px;
     /* float:left; */
     background-color:lightcoral;
+}
+
+
+img {
+    width: 100px;
+    height: auto;
+    /* margin-right: 100px; */
+    /* padding-right: 100px; */
+}
+
+.leftSide{
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: right;
+    width: 50%;
+
+
 }
