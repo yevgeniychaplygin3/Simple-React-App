@@ -7,3 +7,11 @@
 .pictures{
     float: right
 }
+
+.dialogError{
+
+    border: 2px solid red;
+    border-radius: 5px;
+    /* float:left; */
+    background-color:lightcoral;
+}
