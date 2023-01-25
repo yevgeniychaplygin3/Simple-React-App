@@ -13,7 +13,7 @@ class EntryDialog extends React.Component{
     
     
     handleSubmit(prop){
-        if(prop.currentState.state.caption == '' || prop.currentState.state.url == ''){
+        if(prop.currentState.state.caption === '' || prop.currentState.state.url === ''){
             this.setState( (e) => e.empty = true)
         }
         else{
@@ -35,11 +35,11 @@ class EntryDialog extends React.Component{
                     <button type='submit'>Accept</button>
                     <button onClick={(e) => {
                         e.preventDefault()
-                        {this.props.currentState.closeDialog()}
+                        this.props.currentState.closeDialog()
                         }}>
                             Cancel
                     </button>
-                    <div className=''>
+                    <div>
                         {this.state.empty ? <p className='dialogError'>You must enter both a URL and a caption</p> : ''}
                     </div>
                 </form>

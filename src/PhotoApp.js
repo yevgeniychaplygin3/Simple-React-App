@@ -3,14 +3,9 @@ import EntryDialog from './EntryDialog'
 import Pictures from './PicturesList'
 
 const images = {
-    url0: 'https://th.bing.com/th/id/OIP.49CH_m8xcY3b6stGkMkG2AHaEO?pid=ImgDet&rs=1',
-    url1: 'https://th.bing.com/th/id/OIP.aQFbvUUdsl1hfZYF1XmUqwHaE8?pid=ImgDet&rs=1'
 }
 
-
 const captions = {
-    caption0: 'hi',
-    caption1: 'world'
 } 
 
 class App extends React.Component{
